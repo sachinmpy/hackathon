@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title
+
+    <!-- CSS -->
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400&family=Signika&display=swap');
+     
+        body {
+            font-family: 'Fira Sans Condensed', sans-serif;
+            font-family: 'Signika', sans-serif;
+            background-color: #fbfbfb;
+            }
+            @media (min-width: 991.98px) {
+            main {
+                padding-left: 240px;
+            }
+            }
+
+            /* Sidebar */
+            .sidebar {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                
+                box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+                width: 240px;
+                z-index: 600;
+            }
+
+            @media (max-width: 991.98px) {
+            .sidebar {
+                width: 100%;
+            }
+            }
+            .sidebar .active {
+            border-radius: 5px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+            }
+
+            .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: calc(100vh - 48px);
+            padding-top: 0.5rem;
+            overflow-x: hidden;
+            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+            }
+
+            .pattern-polka-v2{
+                background-color: #ffffff;
+                opacity: 1;
+                background-image:  radial-gradient(#000000 0.8px, transparent 0.8px), radial-gradient(#000000 0.8px, #ffffff 0.8px);
+                background-size: 32px 32px;
+                background-position: 0 0,16px 16px;
+            }
+
+            .pattern-polka-v1{
+                background-color: #ffffff;
+                opacity: 1;
+                background-image: radial-gradient(#000000 0.55px, #ffffff 0.55px);
+                background-size: 11px 11px;
+            }
+
+            .pattern-diagonal-v3{
+                background-color: #ffffff;
+                opacity: 1;
+                background-size: 13px 13px;
+                background-image: repeating-linear-gradient(45deg, #000000 0, #000000 1.3px, #ffffff 0, #ffffff 50%);}
+            </style>
+</head>
+<body>
+
+    {% load widget_tweaks %}
+    <form action="{% url 'predictor' %}" method="POST" class="container w-50 font-weight-bold mt-3 p-3">
+        {% csrf_token %}
+        <h1 class="p-3">Phyiscal Indicator Form</h1>
+        <table class="table table-hover table-borderless table-sm fw-bolder ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"><span class="fw-bolder">Field</span></th>
+                <th scope="col"><span class="fw-bolder">Value</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <th scope="row">1</th>
+                <td>Smoking</td>
+                <td>{% render_field form.smoking %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">2</th>
+                <td>Alchohol Drinking</td>
+                <td>{% render_field form.alcohol_drinking %} </td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td>Stroke</td>
+                <td>{% render_field form.stroke %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td>Physical Health</td>
+                <td>{% render_field form.physical_health %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">5</th>
+                <td>Mental Health</td>
+                <td>{% render_field form.mental_health %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">6</th>
+                <td>Difficulty Walking</td>
+                <td>{% render_field form.diff_walking %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">7</th>
+                <td>Sex</td>
+                <td>{% render_field form.sex %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">8</th>
+                <td>Age</td>
+                <td>{% render_field form.age %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">9</th>
+                <td>Diaobitic</td>
+                <td>{% render_field form.diaobitic %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">10</th>
+                <td>Physical Activity</td>
+                <td>{% render_field form.physical_activity %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">11</th>
+                <td>Sleep Time</td>
+                <td>{% render_field form.sleep_time %}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">12</th>
+                <td>Heart Disease</td>
+                <td>{% render_field form.heart_disease %}</td>
+              </tr>
+              
+              <tr>
+                <th scope="row">13</th>
+                <td>General Health</td>
+                <td>{% render_field form.general_health %}</td>
+              </tr> 
+
+              <tr>
+                <th scope="row">14</th>
+                <td>Race</td>
+                <td>{% render_field form.race %}</td>
+              </tr> 
+              
+              
+              <tr hidden>
+                <th scope="row">14</th>
+                <td>Disease</td>
+                <td>{% render_field form.disease %}</td>
+              </tr>
+              
+            </tbody>
+
+            
+        </table>
+        <button type="submit" class="btn btn-lg btn-secondary">Submit</button>
+    </form>
+</body>
+</html>
